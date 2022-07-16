@@ -44,6 +44,6 @@ public class Atleta {
     //4. Metodo to String para poder ver la informacion del objeto creado
     @Override
     public String toString() {
-        return "Atleta{" + "nombre= " + nombre + ", pais= " + pais + ", tiempo= " + tiempo + '}';
+        return "nombre= " + nombre + ", pais= " + pais + ", tiempo= " + tiempo + '}';
     }  
 }

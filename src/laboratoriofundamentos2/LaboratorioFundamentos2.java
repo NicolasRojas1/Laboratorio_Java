@@ -13,15 +13,15 @@ public class LaboratorioFundamentos2 {
         System.out.println("Ingrese la cantidad de atletas");
         int n = teclado.nextInt();
         Atleta[] atleta = new Atleta[n];
-        
+        double sum = 0; 
         
         
         //6. Ingresando datos
         for(int i = 0; i < atleta.length; i++){
             //Toca colocarlo para que no se llene el espacio
-            teclado.nextLine();
+            teclado.nextLine(); //flush --> para evitar que se llene la ram, eliminando informacion basura
             atleta[i] = new Atleta(); //creo un atleta en cada ciclo 
-            System.out.println("Ingrese el nombre");
+            System.out.println("Ingrese el nombre");//sin el flush se salta este paso
             atleta[i].setNombre(teclado.nextLine());
             System.out.println("Ingrese el pais");
             atleta[i].setPais(teclado.nextLine());
@@ -54,12 +54,22 @@ public class LaboratorioFundamentos2 {
         }
      
         //Imprimiendo con for each
+        // for(TipodeDato variable: Arreglo)
         for(Atleta a: atleta){
             System.out.println(a);
         }
         
         System.out.println(atleta[0].getNombre()+" es el de menor tiempo, con un registro de: "+atleta[0].getTiempo());
         System.out.println(atleta[atleta.length - 1].getNombre()+" es el de mayor tiempo, con un registro de: "+atleta[atleta.length - 1].getTiempo());
+        
+        double promedio = 0;
+        for (int i = 0; i < atleta.length; i++) {
+            sum += atleta[i].getTiempo(); 
+            // sum = sum + atleta[i].getTiempo()
+        }
+        
+        promedio = sum / atleta.length;
+        System.out.println("El tiempo promedio de todos los atletas es de: "+promedio);     
     }
     
 }
